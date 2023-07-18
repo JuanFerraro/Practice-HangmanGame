@@ -7,9 +7,16 @@ let btnComienza = document.getElementById("btnComienza");
 let wordContainer = document.getElementById("wordContainer");
 let keyboardContainer = document.getElementById("keyboardContainer");
 let failsContainer = document.getElementById("failsContainer");
+let resultContainer = document.getElementById("resultContainer");
+
 let word = document.getElementById("word").value;
 let clue = document.getElementById("clue").value;
 let maxAttempts = 5;
+/* Obtener puntaje del almacenamiento local */
+let storedScore = localStorage.getItem("score");
+/* Global Score */
+let score = 0;
+score = parseInt(score) + parseInt(storedScore);
 
 
 function myGame() {
@@ -47,6 +54,9 @@ function createInputs() {
 }
 
 function createKeyboard(wordLetters) {
+    /* Cleaning Container */
+    keyboardContainer.innerHTML = "";
+
     /* Spanish Alphabet */
     let alphabet = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 
@@ -77,39 +87,17 @@ function createKeyboard(wordLetters) {
     keyboardContainer.appendChild(keyboardForm);
 }
 
-function checkLetter(letter, wordLetters) {
-    /* Get wordLetters inputs */
-    var wordInputs = wordContainer.getElementsByTagName("input");
-    console.log('checkLetter->', letter)
-    /*  console.log(typeof(wordInputs))
-     console.log(wordInputs.length) */
-    /* Verify if letter is in inputs */
-    if (wordLetters.includes(letter)) {
-        for (var i = 0; i < wordLetters.length; i++) {
-            if (wordLetters[i] === letter) {
-                /* Change type to text */
-                wordInputs[i].type = "text";
-            }
-        }
-    } else {
-        /* Decrease attempts counter */
-        maxAttempts--;
-        /* Update attempts input value */
-        let attemptsInput = failsContainer.querySelector(".attemptsInput");
-        console.log('Attempts -> ',maxAttempts)
-        attemptsInput.value = maxAttempts;
-
-        /* Check if no more attempts remaining */
-        if (maxAttempts === 0) {
-            // Handle game over logic
-        }
-    }
-}
-
 function createAttemptsCounter() {
+    /* Cleaning Container */
+    failsContainer.innerHTML = "";
+
     /* Create the heading for attempts */
     let heading = document.createElement("h3");
     heading.textContent = "Intentos Restantes: ";
+
+    /* Create the heading for score */
+    let headingScore = document.createElement("h3");
+    headingScore.textContent = "Score: ";
 
     /* Create the input for remaining attempts */
     let attemptsInput = document.createElement("input");
@@ -118,8 +106,80 @@ function createAttemptsCounter() {
     attemptsInput.setAttribute("class", "attemptsInput")
     attemptsInput.disabled = true;
 
+    /* Create the input for score */   
+    let scoreInput = document.createElement("input");
+    scoreInput.type = "text";
+    if (storedScore != 0){
+        console.log(storedScore)
+        scoreInput.value = parseInt(score) + parseInt(storedScore);
+    }else{
+        scoreInput.value = score;
+    }
+    scoreInput.setAttribute("class", "scoreInput")
+    scoreInput.disabled = true;
+
+
     /* Append heading and input to attempts counter */
     failsContainer.appendChild(heading);
     failsContainer.appendChild(attemptsInput);
+    failsContainer.appendChild(headingScore);
+    failsContainer.appendChild(scoreInput);
 
 }
+
+function checkLetter(letter, wordLetters) {
+    /* Get wordLetters inputs */
+    var wordInputs = wordContainer.getElementsByTagName("input");
+    console.log('checkLetter->', letter)
+
+    /* Verify if letter is in inputs */
+    if (wordLetters.includes(letter)) {
+        for (var i = 0; i < wordLetters.length; i++) {
+            if (wordLetters[i] === letter) {
+                /* Change type to text */
+                wordInputs[i].type = "text";
+            }
+            score = score + 10;
+        }
+    } else {
+        /* Decrease attempts counter */
+        maxAttempts--;
+        /* Update attempts input value */
+        let attemptsInput = failsContainer.querySelector(".attemptsInput");
+        attemptsInput.value = maxAttempts;
+
+        /* Check if no more attempts remaining */
+        if (maxAttempts === 0) {
+            createResults("Haz perdido");
+            btnComienza.disabled = true;
+        }
+    }
+}
+
+function createResults(message) {
+    /* Cleaning Container */
+    resultContainer.innerHTML = "";
+
+    /* Add message paragraph */
+    var messageParagraph = document.createElement("p");
+    messageParagraph.textContent = message;
+    resultContainer.appendChild(messageParagraph);
+
+    /* Add button new-game */
+    let button = document.createElement("button");
+    button.textContent = "Juega de Nuevo";
+    button.addEventListener("click", function (event) {
+        event.preventDefault();
+        /* Almacenar puntaje actual en el almacenamiento local */
+        localStorage.setItem("score", score);
+        /* Recargar la página */
+        location.reload();
+    });
+    resultContainer.appendChild(button);
+
+    /* Add score message */
+    var scoreParagraph = document.createElement("h1");
+    scoreParagraph.textContent = "Score:"+score;
+    resultContainer.appendChild(scoreParagraph)
+}
+
