@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="game-box">
+        <form class="btnComienza">
+          <input id="word" type="hidden" value="{{word.word}}">
+          <input id="clue" type="hidden" value="{{word.clue}}">
+          <button type="submit" id="btnComienza">Comienza!</button>
+        </form>
+
+        <div class="wordContainer" id="wordContainer">
+          <!-- Contiene el espacio para ir mostrando las letras de la palabra a adivinar -->
+        </div>
+
+        <div class="clueContainer" id="clueContainer">
+          <!-- Contiene el espacio para ir mostrando las letras de la palabra a adivinar -->
+        </div>
+
+        <div class="keyboardContainer" id="keyboardContainer">
+          <!-- Contiene el espacio para mostrar el teclado donde el usuario escogerá las letras -->
+        </div>
+
+        <div class="failsContainer" id="failsContainer">
+          <!-- Contiene la cantidad de intentos fallidos -->
+        </div>
+
+      </div>
+    </div>
+    <!-- Script -->
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>

@@ -4,10 +4,10 @@ body{
     font-size: 16px;
     font-weight: 400;
     color: rgb(255, 255, 255);
-    background: rgb(36, 13, 55);
+    background: #191925;
 }
 
-.box{
+.container{
     margin: 0 auto;
     width: 100%;
     max-width: 1140px;
@@ -16,9 +16,10 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    row-gap: 32px;
 }
 
-.container{
+.box-title{
     margin: 0;
     padding: 4px;
     max-width: 900px;
@@ -28,7 +29,185 @@ body{
     column-gap: 15px;
     border-width: 10px;
     border-style: groove;
+    border-color: #323232;
+    border-radius: 30px;
+    font-size: 24px;
+    box-shadow: 10px 7px 0px 3px rgba(0, 0, 0, 0.83),
+ 	  inset -70px -71px 80px 20px #080707,
+ 	  0px 0px 24px 0px rgba(245, 20, 245, 0.54),
+ 	  inset -2px -5px 10px 0 #ffb3d5;
 }
 
+.box-item{
+    margin: 0;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 16px;
+    column-gap: 10px;
+    border-width: 10px;
+    border-style: groove;
+    border-color: #323232;
+    border-radius: 30px;
+    box-shadow: 10px 7px 0px 3px rgba(0, 0, 0, 0.83),
+ 	  inset -70px -71px 80px 20px #080707,
+ 	  0px 0px 24px 0px rgba(245, 20, 245, 0.54),
+ 	  inset -2px -5px 10px 0 #ffb3d5;
+    
+}
 
+.box-item .new-game input{
+    width: 180px;
+    font-size: 24px;
+    color: aliceblue;
+    padding: 14px;
+    border-radius: 16px;
+    border-width: 5px;
+    border-style: groove;
+    box-shadow: 2px 3px 0px 3px rgba(0, 0, 0, 0.83),
+ 	  inset -70px -71px 80px 20px #080707,
+ 	  inset -15px -15px 10px 0 #ffb3d5;
+}
 
+.socials{
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+}
+
+.fa{
+    padding: 14px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.fa-twitter, .fa-github, .fa-linkedin {
+    background: #d600c0;
+    color: rgb(7, 7, 7);
+}
+
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* new-game Styles */
+
+.game-box{
+    margin: 0;
+    padding: 10px;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    row-gap: 16px;
+    column-gap: 10px;
+    border-width: 10px;
+    border-style: groove;
+    border-color: #323232;
+    border-radius: 30px;
+    box-shadow: 10px 7px 0px 3px rgba(0, 0, 0, 0.83),
+ 	  inset -70px -71px 80px 20px rgb(6, 5, 5),
+ 	  0px 0px 24px 0px rgba(245, 20, 245, 0.54),
+ 	  inset -2px -5px 10px 0 #ffb3d5;   
+}
+
+.game-box button{
+    width: 140px;
+    font-size: 20px;
+    color: aliceblue;
+    padding: 6px 4px 6px 4px;
+    border-radius: 16px;
+    border-width: 5px;
+    border-style: groove;
+    box-shadow: 2px 3px 0px 3px rgba(0, 0, 0, 0.83),
+ 	  inset -70px -71px 80px 20px #080707,
+ 	  inset -15px -15px 10px 0 #ffb3d5;
+}
+
+.wordContainer{
+    width: 450px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 4px;
+    column-gap: 4px;
+}
+
+.wordContainer input{
+    font-size: 16px;
+    text-align: center;
+    width: 22px;
+    height: 22px;
+    color: rgb(197, 0, 181);
+    background-color: #080707;
+    border-radius: 50%;
+}
+
+.clueContainer p{
+    margin: 2px;
+    justify-content: center;
+    font-size: 14px;
+    font-style: oblique;
+    font-weight: bold;
+    color: #d600c0;
+}
+
+.keyboardContainer form{
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 4px;
+    justify-content: center;
+}
+
+.keyboardContainer form button{
+    width: 30px;
+    font-size: 16px;
+    padding: 0;
+    color: aliceblue;
+    padding: 2px;
+    border-radius: 4px;
+    border-width: 5px;
+    border-style: groove;
+    box-shadow: 2px 3px 0px 3px rgba(0, 0, 0, 0.83),
+ 	  inset -70px -71px 80px 20px #080707,
+ 	  inset -15px -15px 10px 0 #ffb3d5;
+}
+
+.failsContainer{
+    margin: 0;
+    width: 400px;
+    display: flex;
+    font-size: 16px;
+    flex-direction: row;
+    column-gap: 5px;
+    align-items: baseline;
+    padding-left: 30px;
+}
+
+.failsContainer h3{
+    margin: 0;
+    font-weight: bolder;
+    color: #d600c0;
+}
+
+.failsContainer .attemptsInput{
+    width: 20px;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #d600c0;
+    background-color: #080707;
+}

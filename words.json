@@ -1,82 +1,82 @@
 [
-    {
-        "word": "Tigre",
-        "clue": "Pertenece a la familia de los felinos"
-    },
-    {
-        "word": "Cielo",
-        "clue": "Donde están las estrellas"
-    },
-    {
-        "word": "Océano",
-        "clue": "Cubre la mayor parte de la superficie de la Tierra"
-    },
-    {
-        "word": "Montaña",
-        "clue": "Una elevación natural grande de la superficie de la Tierra"
-    },
-    {
-        "word": "Guitarra",
-        "clue": "Un instrumento musical con cuerdas"
-    },
-    {
-        "word": "Chocolate",
-        "clue": "Un dulce hecho a partir de granos de cacao"
-    },
-    {
-        "word": "Arcoíris",
-        "clue": "Un fenómeno meteorológico con un espectro de colores"
-    },
-    {
-        "word": "Elefante",
-        "clue": "Un mamífero grande con una trompa y colmillos"
-    },
-    {
-        "word": "Pizza",
-        "clue": "Un plato popular con masa, salsa y coberturas"
-    },
-    {
-        "word": "Fútbol",
-        "clue": "Un deporte que se juega con una pelota redonda y arcos"
-    },
-    {
-        "word": "Libro",
-        "clue": "Contiene historias y conocimientos"
-    },
-    {
-        "word": "Mariposa",
-        "clue": "Insecto colorido con alas"
-    },
-    {
-        "word": "Bosque",
-        "clue": "Área extensa con árboles"
-    },
-    {
-        "word": "Perro",
-        "clue": "Mamífero doméstico leal y cariñoso"
-    },
-    {
-        "word": "Luna",
-        "clue": "Satélite natural de la Tierra"
-    },
-    {
-        "word": "Bicicleta",
-        "clue": "Vehículo de dos ruedas impulsado por pedales"
-    },
-    {
-        "word": "Flor",
-        "clue": "Estructura reproductiva de las plantas"
-    },
-    {
-        "word": "Fiesta",
-        "clue": "Celebración alegre y festiva"
-    },
-    {
-        "word": "Avión",
-        "clue": "Vehículo más pesado que el aire que vuela"
-    },
-    {
-        "word": "Café",
-        "clue": "Bebida caliente y estimulante"
-    }
+  {
+    "word": "Tigre",
+    "clue": "Pertenece a la familia de los felinos"
+  },
+  {
+    "word": "Cielo",
+    "clue": "Donde estan las estrellas"
+  },
+  {
+    "word": "Oceano",
+    "clue": "Cubre la mayor parte de la superficie de la Tierra"
+  },
+  {
+    "word": "Montana",
+    "clue": "Una elevacion natural grande de la superficie de la Tierra"
+  },
+  {
+    "word": "Guitarra",
+    "clue": "Un instrumento musical con cuerdas"
+  },
+  {
+    "word": "Chocolate",
+    "clue": "Un dulce hecho a partir de granos de cacao"
+  },
+  {
+    "word": "Arcoiris",
+    "clue": "Un fenomeno meteorologico con un espectro de colores"
+  },
+  {
+    "word": "Elefante",
+    "clue": "Un mamifero grande con una trompa y colmillos"
+  },
+  {
+    "word": "Pizza",
+    "clue": "Un plato popular con masa, salsa y coberturas"
+  },
+  {
+    "word": "Futbol",
+    "clue": "Un deporte que se juega con una pelota redonda y arcos"
+  },
+  {
+    "word": "Libro",
+    "clue": "Contiene historias y conocimientos"
+  },
+  {
+    "word": "Mariposa",
+    "clue": "Insecto colorido con alas"
+  },
+  {
+    "word": "Bosque",
+    "clue": "Area extensa con arboles"
+  },
+  {
+    "word": "Perro",
+    "clue": "Mamifero domestico leal y carinoso"
+  },
+  {
+    "word": "Luna",
+    "clue": "Satelite natural de la Tierra"
+  },
+  {
+    "word": "Bicicleta",
+    "clue": "Vehiculo de dos ruedas impulsado por pedales"
+  },
+  {
+    "word": "Flor",
+    "clue": "Estructura reproductiva de las plantas"
+  },
+  {
+    "word": "Fiesta",
+    "clue": "Celebracion alegre y festiva"
+  },
+  {
+    "word": "Avion",
+    "clue": "Vehiculo mas pesado que el aire que vuela"
+  },
+  {
+    "word": "Cafe",
+    "clue": "Bebida caliente y estimulante"
+  }
 ]

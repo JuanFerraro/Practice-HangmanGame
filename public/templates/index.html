@@ -5,28 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <section class="box">
-        <div class="container">
-            <div class="left-col">
-                <div class="welcome-text">
-                    <h2>Hangman Game ☜(ﾟヮﾟ☜)</h2>
-                    <p>Bienvenido a Hangman Game!</p>
-                    <br>
-                    <a href="/" class="btn">Juega Ahora</a>
-                </div>
-            </div>
-
-            <div class="right-col">
-                <h4>Reglas</h4>
-                <ul>
-                    <li>Tendras 5 oportunidades de adivinar la palabra.</li>
-                    <li>Siempre iniciarás con una pista.</li>
-                    <li>Si aciertas podrás continuar jugando.</li>
-                    <li>Tu puntaje depende de las oportunidades falladas.</li>
-                </ul>
-                <a href="/">Terminos y Condiciones</a>
+    <section class="container">
+        <div class="box-title">
+            <h2>(☞ﾟヮﾟ)☞ Hangman Game ☜(ﾟヮﾟ☜)</h2>
+        </div>
+        <div class="box-item">
+            <form class='new-game' action="/new-game/">
+                <input type="submit" value="Juega Ahora">
+            </form>
+            <form class='new-game' action="/">
+                <input type="submit" value="Reglas">
+            </form>
+            <form class='new-game' action="/">
+                <input type="submit" value="About">
+            </form>
+            <div class="socials">
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-github"></a>
             </div>
         </div>
     </section>
