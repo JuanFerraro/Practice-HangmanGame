@@ -4,6 +4,9 @@ from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
+# Config
+from config.database import connect_to_mongodb
+
 # Routers
 from routers.games import games_router
 
@@ -11,6 +14,11 @@ from routers.games import games_router
 app = FastAPI()
 app.title = 'Hangman Game 🎯'
 app.version = '0.1'
+
+""" Conexion BD """
+@app.on_event("startup")
+async def startup():
+    app.mongodb_client = connect_to_mongodb()
 
 # Including Routers
 app.include_router(games_router)
