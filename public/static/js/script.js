@@ -134,9 +134,9 @@ function checkLetter(letter, wordLetters) {
         scoreInput.value = score;
         isWinner = doYouWin();
         if (isWinner == true) {
-            createResults("Haz ganado!");
+            createResults("👏 Haz ganado! 👏");
             btnComienza.disabled = true;
-    }
+        }
 
     } else {
         /* Decrease attempts counter */
@@ -147,19 +147,28 @@ function checkLetter(letter, wordLetters) {
 
         /* Check if no more attempts remaining */
         if (maxAttempts === 0) {
-            createResults("Haz perdido");
+            createResults("🥺 Haz perdido 🥺");
             btnComienza.disabled = true;
+        }
+    }
+
+    /* Disable the pressed letter button */
+    var keyboardButtons = keyboardContainer.getElementsByTagName("button");
+    for (var j = 0; j < keyboardButtons.length; j++) {
+        if (keyboardButtons[j].value === letter) {
+            keyboardButtons[j].disabled = true;
+            break;
         }
     }
 }
 
 function doYouWin() {
     let wordInputs = wordContainer.getElementsByTagName("input");
-    let win = true; 
+    let win = true;
 
     for (let index = 0; index < wordInputs.length; index++) {
         if (wordInputs[index].type !== "text") {
-            win = false; 
+            win = false;
             break;
         }
     }
@@ -181,6 +190,16 @@ function createResults(message) {
 
     /* Cleaning resultContainer */
     resultContainer.innerHTML = "";
+
+    /* List with the letters in word */
+    var wordLetters = word.split("");
+    wordLetters.forEach(function (letter) {
+        var input = document.createElement("input");
+        input.type = "text";
+        input.value = letter;
+        input.setAttribute("class", "wordResult")
+        wordContainer.appendChild(input);
+    });
 
     /* Add message paragraph */
     var messageParagraph = document.createElement("h1");

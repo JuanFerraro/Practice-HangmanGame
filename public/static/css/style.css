@@ -131,6 +131,10 @@ body{
  	  inset -15px -15px 10px 0 #ffb3d5;
 }
 
+.game-box button:disabled {
+    opacity: 0.5; /* Cambia la opacidad cuando el botón está desactivado */
+}
+
 .maxScoreContainer h2{
     margin: 0;
     font-size: 16px;
@@ -234,3 +238,12 @@ body{
     color: #d600c0;
 }
 
+.wordResult{
+    font-size: 20px;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    color: rgb(197, 0, 181);
+    background-color: #080707;
+    border-radius: 50%;
+}
