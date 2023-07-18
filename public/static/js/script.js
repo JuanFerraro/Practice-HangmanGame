@@ -12,12 +12,9 @@ let resultContainer = document.getElementById("resultContainer");
 let word = document.getElementById("word").value;
 let clue = document.getElementById("clue").value;
 let maxAttempts = 5;
-/* Obtener puntaje del almacenamiento local */
-let storedScore = localStorage.getItem("score");
 /* Global Score */
 let score = 0;
-score = parseInt(score) + parseInt(storedScore);
-
+let max_score = 0;
 
 function myGame() {
     /* Creating word input */
@@ -70,13 +67,10 @@ function createKeyboard(wordLetters) {
         button.textContent = letter;
         button.value = letter;
         button.setAttribute('name', letter)
-        console.log(button.name)
 
         /* Add click event */
         button.addEventListener("click", function (event) {
             event.preventDefault();
-            console.log('click')
-            console.log(button.name)
             checkLetter(button.name, wordLetters);
         });
 
@@ -106,15 +100,10 @@ function createAttemptsCounter() {
     attemptsInput.setAttribute("class", "attemptsInput")
     attemptsInput.disabled = true;
 
-    /* Create the input for score */   
+    /* Create the input for score */
     let scoreInput = document.createElement("input");
     scoreInput.type = "text";
-    if (storedScore != 0){
-        console.log(storedScore)
-        scoreInput.value = parseInt(score) + parseInt(storedScore);
-    }else{
-        scoreInput.value = score;
-    }
+    scoreInput.value = score;
     scoreInput.setAttribute("class", "scoreInput")
     scoreInput.disabled = true;
 
@@ -130,7 +119,6 @@ function createAttemptsCounter() {
 function checkLetter(letter, wordLetters) {
     /* Get wordLetters inputs */
     var wordInputs = wordContainer.getElementsByTagName("input");
-    console.log('checkLetter->', letter)
 
     /* Verify if letter is in inputs */
     if (wordLetters.includes(letter)) {
@@ -139,8 +127,17 @@ function checkLetter(letter, wordLetters) {
                 /* Change type to text */
                 wordInputs[i].type = "text";
             }
-            score = score + 10;
         }
+        score = score + 10;
+        /* Update Score */
+        let scoreInput = failsContainer.querySelector(".scoreInput");
+        scoreInput.value = score;
+        isWinner = doYouWin();
+        if (isWinner == true) {
+            createResults("Haz ganado!");
+            btnComienza.disabled = true;
+    }
+
     } else {
         /* Decrease attempts counter */
         maxAttempts--;
@@ -156,12 +153,37 @@ function checkLetter(letter, wordLetters) {
     }
 }
 
+function doYouWin() {
+    let wordInputs = wordContainer.getElementsByTagName("input");
+    let win = true; 
+
+    for (let index = 0; index < wordInputs.length; index++) {
+        if (wordInputs[index].type !== "text") {
+            win = false; 
+            break;
+        }
+    }
+    return win;
+}
+
 function createResults(message) {
-    /* Cleaning Container */
+    /* Cleaning wordContainer */
+    wordContainer.innerHTML = "";
+
+    /* Cleaning clueContainer */
+    clueContainer.innerHTML = "";
+
+    /* Cleaning keyboardContainer */
+    keyboardContainer.innerHTML = "";
+
+    /* Cleaning failsContainer */
+    failsContainer.innerHTML = "";
+
+    /* Cleaning resultContainer */
     resultContainer.innerHTML = "";
 
     /* Add message paragraph */
-    var messageParagraph = document.createElement("p");
+    var messageParagraph = document.createElement("h1");
     messageParagraph.textContent = message;
     resultContainer.appendChild(messageParagraph);
 
@@ -179,7 +201,8 @@ function createResults(message) {
 
     /* Add score message */
     var scoreParagraph = document.createElement("h1");
-    scoreParagraph.textContent = "Score:"+score;
+    scoreParagraph.textContent = "Score:" + score;
+    console.log("Score -> ", score)
     resultContainer.appendChild(scoreParagraph)
 }
 

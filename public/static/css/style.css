@@ -131,6 +131,12 @@ body{
  	  inset -15px -15px 10px 0 #ffb3d5;
 }
 
+.maxScoreContainer h2{
+    margin: 0;
+    font-size: 16px;
+    color: #d600c0;
+}
+
 .wordContainer{
     width: 450px;
     height: auto;
@@ -205,10 +211,26 @@ body{
 .failsContainer .attemptsInput, .scoreInput{
     width: 20px;
     margin: 0;
-    margin-right: 44px;
+    margin-right: 12px;
     font-size: 16px;
     text-align: center;
     font-weight: bolder;
     color: #d600c0;
     background-color: #080707;
 }
+
+.scoreInput{
+    width: auto;
+    max-width: 50px;
+}
+
+.resultContainer{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+    color: #d600c0;
+}
+
