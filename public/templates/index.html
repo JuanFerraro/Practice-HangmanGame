@@ -21,9 +21,15 @@
             <h2>(☞ﾟヮﾟ)☞ Hangman Game ☜(ﾟヮﾟ☜)</h2>
         </div>
         <div class="box-item">
-            <form class='new-game' action="/new-game/">
-                <input type="submit" value="Juega Ahora">
-            </form>
+            {% if user %}
+                <form class='new-game' action="/new-game/">
+                    <input type="submit" value="Juega Ahora">
+                </form>
+            {% else %}
+                <form class='new-game' action="/login/">
+                    <input type="submit" value="Login">
+                </form>
+            {% endif %}
             <form class='new-game' action="/">
                 <input type="submit" value="Reglas">
             </form>

@@ -12,35 +12,23 @@
 <body>
     <section class="myContainer">
         <div class="box-title">
-            <h2>📲 Sign Up 📲</h2>
+            <h2>👾 LOGIN 👾</h2>
         </div>
         <div class="box-item"> 
-            <form class="signupForm" action="/sign-up" method="POST">
-                <div class="formPlace">
-                    <label for="user_name" class="form-label">Nombre de Usuario</label>
-                    <input type="text" name="user_name" id="user_name"
-                            placeholder="Nombre de Usuario" required
-                            minlength="3" maxlength="30">
-                </div>
-                <div class="formPlace">
+            <form class="loginForm" action="/login" method="POST">
+                <div class="formPlaceLogin">
                     <label for="email" class="form-label">Email</label>
                     <input type="Email" name="email" id="email"
                             placeholder="Email" required>
                 </div>
-                <div class="formPlace">
+                <div class="formPlaceLogin">
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" name="password" id="password"
                             placeholder="Contraseña" required
                             minlength="8" maxlength="24">
                 </div>
-                <div class="formPlace">
-                    <label for="confirmed_password" class="form-label">Contraseña</label>
-                    <input type="password" name="confirmed_password" id="confirmed_password"
-                            placeholder="Confirmar Contraseña" required
-                            minlength="8" maxlength="24">
-                </div>
-                <div class="formPlace">
-                    <button type="submit" class="btnSignup">Registrate</button>
+                <div class="formPlaceLogin">
+                    <button type="submit" class="btnLogin">Login</button>
                 </div>
             </form>
         </div>
