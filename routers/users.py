@@ -9,7 +9,7 @@ from fastapi.templating import Jinja2Templates
 from schemas.user import UserBase, UserLogin
 
 # Utilities
-from utils.utils import read_words
+from utils.utils import read_words, hash_password, verify_password
 
 # Config
 from config.database import connect_to_mongodb
@@ -45,6 +45,7 @@ def sign_up(request: Request, user: UserLogin = Depends(UserLogin.user_register_
     existing_user = users_collection.find_one({"email": user.email})
     if existing_user:
         raise HTTPException(status_code=400, detail="El usuario ya está registrado")
+    user.password = hash_password(user.password)
     users_collection.insert_one(user.dict())
     return JSONResponse(status_code=200, content="Usuario registrado exitosamente")
 
