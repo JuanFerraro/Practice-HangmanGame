@@ -7,7 +7,7 @@ body{
     background: #191925;
 }
 
-.container{
+.myContainer{
     margin: 0 auto;
     width: 100%;
     max-width: 1140px;
@@ -304,4 +304,57 @@ body{
 .btnSignup:hover{
     background-color:rgb(0, 0, 0);
     color: #df00c5;
+}
+
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* Message Styles */
+.messageContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.message{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #aa00a4;
+    color: #080707;
+    border-radius: 20px;
+    border-width: 6px;
+    /* border-style: groove; */
+    border-color: rgb(0, 0, 0);
+}
+
+.message p{
+    margin: 3px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.divider{
+    width: 400px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.message button{
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 6px;
+    margin-bottom: 2px;
+    padding: 0;
+    justify-content: center;
+    background-color: #191925;
+}
+
+.message button:hover{
+    background-color:rgb(240, 240, 240);
 }

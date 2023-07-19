@@ -9,7 +9,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def hash_password(password: str) -> str:
     """ HASH PASSWORD
-        Function to code a password
+        Function to crypt a password
     """
     return pwd_context.hash(password)
 

@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
-    <link rel="stylesheet" href="/static/css/style.css">
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Add fonts library -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,400&f[]=general-sans@400&display=swap" rel="stylesheet">
-</head>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    </head>
 <body>
-    <section class="container">
+    <section class="myContainer">
+        {% if message %}
+            {% include 'message.html' %}
+        {% endif %}
+
         <div class="box-title">
             <h2>(☞ﾟヮﾟ)☞ Hangman Game ☜(ﾟヮﾟ☜)</h2>
         </div>
@@ -31,5 +37,7 @@
             </div>
         </div>
     </section>
+    <!-- Script -->
+    <script src="/static/js/utils.js"></script>
 </body>
 </html>
