@@ -2,6 +2,9 @@
 from datetime import date
 from typing import Optional
 
+# FastAPI
+from fastapi import Form
+
 # Pydantic
 from pydantic import BaseModel, EmailStr, Field
 
@@ -9,14 +12,21 @@ from pydantic import BaseModel, EmailStr, Field
 class UserBase(BaseModel):
     user_name: str = Field(min_length=3, max_length=30)
     email: EmailStr = Field()
+    max_score: int = Field(default=0, ge=0)
 
 class UserLogin(UserBase):
     password: str = Field(min_length=8, max_length=24)
 
-class User(UserBase):
-    first_name: str = Field(min_length=1, max_length=30)
-    last_name: str = Field(min_length=1, max_length=30)
-    birth_date: Optional[date] = Field(None)
 
-class UserRegister(User):
-    password: str = Field(min_length=8, max_length=24)
+    @classmethod
+    def user_register_as_form(
+        cls,
+        user_name: str = Form(),
+        email: str = Form(),
+        password: str = Form(),
+    ):
+        return cls(
+            user_name = user_name,
+            email = email,
+            password = password
+        )

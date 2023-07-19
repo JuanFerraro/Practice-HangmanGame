@@ -3,9 +3,9 @@ from pymongo.errors import ConnectionFailure
 
 def connect_to_mongodb():
     try:
-        client = MongoClient("mongodb+srv://User:user@mongodb1.dz8ee6z.mongodb.net/BluckBoster")
-        db = client.BluckBoster
-        print("DB RUNNING")
+        client = MongoClient("mongodb+srv://User:user@mongodb1.dz8ee6z.mongodb.net/hangman_game_db")
+        db = client.hangman_game_db
+        print("|-----> DB RUNNING <-----|")
     except ConnectionFailure as e:
         print("Error de Conexion", e)
     return db
