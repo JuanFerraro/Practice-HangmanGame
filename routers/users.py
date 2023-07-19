@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 
 # Schemas
-from schemas.user import UserBase, UserLogin
+from schemas.user import User, UserLogin, UserRegister
 
 # Utilities
 from utils.utils import read_words, hash_password, verify_password
@@ -25,20 +25,7 @@ templates = Jinja2Templates(directory="./public/templates")
 async def startup():
     users_router.mongodb_client = connect_to_mongodb()
 
-# GET: Sign Up Page
-@users_router.get('/sign-up/', tags = ['users'])
-def user_sign_up(request: Request):
-    """USER SIGN UP
-
-    Args:
-        request (Request): Necessary for templateResponse
-
-    Returns:
-        sign.up.html: Static Page with add new user form
-    """
-    return templates.TemplateResponse("sign-up.html", {"request": request})
-
-# GET: Login Page
+## GET: Login Page
 @users_router.get('/login/', tags = ['users'])
 def user_sign_up(request: Request):
     """USER LOGIN
@@ -51,9 +38,39 @@ def user_sign_up(request: Request):
     """
     return templates.TemplateResponse("login.html", {"request": request})
 
-# POST: Add New User
+## POST: User Login
+@users_router.post('/login/', tags=['users'])
+def sign_up(request: Request, user: UserLogin = Depends(UserLogin.user_login_as_form)):
+    users_collection = users_router.mongodb_client["users"]
+    existing_user = users_collection.find_one({"email": user.email})
+    print(user)
+    print(type(existing_user))
+    if existing_user:
+        if verify_password(user.password, existing_user.get('password')):
+            return templates.TemplateResponse("index.html", {"request": request, 
+                                                             "user": user
+                                                             })
+        else:
+            return templates.TemplateResponse("login.html", {"request": request, "message":"Las contraseñas no coinciden"})
+    return templates.TemplateResponse("login.html", {"request": request, "message":"No existe usuario con este correo"})
+
+
+## GET: Sign Up Page
+@users_router.get('/sign-up/', tags = ['users'])
+def user_sign_up(request: Request):
+    """USER SIGN UP
+
+    Args:
+        request (Request): Necessary for templateResponse
+
+    Returns:
+        sign.up.html: Static Page with add new user form
+    """
+    return templates.TemplateResponse("sign-up.html", {"request": request})
+
+## POST: Add New User
 @users_router.post('/sign-up/', tags=['users'])
-def sign_up(request: Request, user: UserLogin = Depends(UserLogin.user_register_as_form)):
+def sign_up(request: Request, user: UserRegister = Depends(UserRegister.user_register_as_form)):
     """USER SIGN UP
 
     Args:

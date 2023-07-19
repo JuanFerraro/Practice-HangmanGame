@@ -11,6 +11,9 @@
 </head>
 <body>
     <section class="myContainer">
+        {% if message %}
+            {% include 'message.html' %}
+        {% endif %}
         <div class="box-title">
             <h2>👾 LOGIN 👾</h2>
         </div>
