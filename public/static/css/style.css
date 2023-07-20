@@ -26,7 +26,9 @@ body{
     height: auto;
     display: flex;
     flex-direction: column;
-    column-gap: 15px;
+    row-gap: 15px;
+    justify-content: center;
+    align-items: center;
     border-width: 10px;
     border-style: groove;
     border-color: #323232;
@@ -36,6 +38,11 @@ body{
  	  inset -70px -71px 80px 20px #080707,
  	  0px 0px 24px 0px rgba(245, 20, 245, 0.54),
  	  inset -2px -5px 10px 0 #ffb3d5;
+}
+
+.box-title p, h2{
+    margin: 0;
+    margin-top: 12px;
 }
 
 .box-item{

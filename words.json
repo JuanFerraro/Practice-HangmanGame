@@ -78,5 +78,101 @@
   {
     "word": "Cafe",
     "clue": "Bebida caliente y estimulante"
+  },
+  {
+    "word": "Karate",
+    "clue": "Arte marcial de origen japonés que se enfoca en golpes y técnicas de defensa"
+  },
+  {
+    "word": "Esgrima",
+    "clue": "Deporte de combate con armas blancas, como espadas y floretes"
+  },
+  {
+    "word": "Atletismo",
+    "clue": "Conjunto de pruebas y disciplinas deportivas como carrera, salto y lanzamientos"
+  },
+  {
+    "word": "Natacion",
+    "clue": "Deporte acuático que consiste en nadar en piscinas o aguas abiertas"
+  },
+  {
+    "word": "Ciclismo",
+    "clue": "Deporte que se practica con una bicicleta en diferentes terrenos"
+  },
+  {
+    "word": "Tenis",
+    "clue": "Deporte de raqueta que se juega en una pista rectangular"
+  },
+  {
+    "word": "Gimnasia",
+    "clue": "Actividad física que combina fuerza, flexibilidad y destreza"
+  },
+  {
+    "word": "Jabalina",
+    "clue": "Prueba del atletismo de lanzar un objeto"
+  },
+  {
+    "word": "Beatles",
+    "clue": "Famosa banda de rock británica de la década de 1960"
+  },
+  {
+    "word": "Beyonce",
+    "clue": "Exitosa cantante, compositora y actriz estadounidense"
+  },
+  {
+    "word": "Thriller",
+    "clue": "Álbum de Michael Jackson lanzado en 1982, con la canción homónima como éxito principal"
+  },
+  {
+    "word": "Shakira",
+    "clue": "Cantante, compositora y bailarina colombiana conocida por sus movimientos de cadera"
+  },
+  {
+    "word": "Imagine",
+    "clue": "Canción icónica de John Lennon lanzada en 1971"
+  },
+  {
+    "word": "Queen",
+    "clue": "Famosa banda de rock británica liderada por Freddie Mercury"
+  },
+  {
+    "word": "Rihanna",
+    "clue": "Cantante, compositora y actriz de Barbados conocida por éxitos como 'Umbrella' y 'Diamonds'"
+  },
+  {
+    "word": "Bohemian Rhapsody",
+    "clue": "Canción emblemática de Queen lanzada en 1975, conocida por su estructura y estilo distintivos"
+  },
+  {
+    "word": "Avatar",
+    "clue": "Película de ciencia ficción dirigida por James Cameron"
+  },
+  {
+    "word": "Tarantino",
+    "clue": "Director conocido por películas como 'Pulp Fiction' y 'Kill Bill'"
+  },
+  {
+    "word": "Cineasta",
+    "clue": "Persona que dirige o produce películas"
+  },
+  {
+    "word": "Blockbuster",
+    "clue": "Película de gran éxito de taquilla"
+  },
+  {
+    "word": "Genero",
+    "clue": "Categoría o tipo de película, como acción, comedia o drama"
+  },
+  {
+    "word": "Premiere",
+    "clue": "Evento de lanzamiento o estreno de una película"
+  },
+  {
+    "word": "Montaje",
+    "clue": "Proceso de editar y ensamblar las escenas de una película"
+  },
+  {
+    "word": "Cameo",
+    "clue": "Breve aparición de un actor famoso en una película"
   }
 ]

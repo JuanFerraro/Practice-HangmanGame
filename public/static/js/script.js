@@ -14,7 +14,8 @@ let clue = document.getElementById("clue").value;
 let maxAttempts = 5;
 /* Global Score */
 let score = 0;
-let max_score = 0;
+let max_score = document.getElementById("maxScore").value;
+console.log(max_score)
 
 function myGame() {
     /* Creating word input */

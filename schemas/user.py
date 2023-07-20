@@ -30,6 +30,19 @@ class User(UserBase):
     user_name: str = Field(min_length=3, max_length=30)
     max_score: int = Field(default=0, ge=0)
 
+    @classmethod
+    def user_as_form(
+        cls,
+        email: str = Form(),
+        user_name: str = Form(),
+        max_score: int = Form()
+    ):
+        return cls(
+            email = email,
+            user_name = user_name,
+            max_score = max_score
+        )
+
 class UserRegister(User):
         password: str = Field(min_length=8, max_length=24)
 

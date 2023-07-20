@@ -18,7 +18,11 @@
 
         <div class="maxScoreContainer" id="maxScoreContainer">
           <!-- Contiene el espacio para el maximo score -->
-          <h2>Max Score: 1000</h2>
+          {% if user %}
+            <h2>Max Score: {{ user.max_score }}</h2>
+            <input type="hidden" name="maxScore" id="maxScore" value="{{user.max_score}}">
+          {% endif %}
+
         </div>
 
         <div class="wordContainer" id="wordContainer">
