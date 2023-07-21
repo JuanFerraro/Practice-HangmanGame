@@ -14,6 +14,7 @@ let clue = document.getElementById("clue").value;
 let maxAttempts = 5;
 /* Global Score */
 let score = 0;
+let maxScoreContainer = document.getElementById("maxScoreContainer")
 let max_score = document.getElementById("maxScore").value;
 console.log(max_score)
 
@@ -135,6 +136,9 @@ function checkLetter(letter, wordLetters) {
         scoreInput.value = score;
         isWinner = doYouWin();
         if (isWinner == true) {
+            if (score > max_score){
+
+            }
             createResults("👏 Haz ganado! 👏");
             btnComienza.disabled = true;
         }
@@ -190,7 +194,7 @@ function createResults(message) {
     failsContainer.innerHTML = "";
 
     /* Cleaning resultContainer */
-    resultContainer.innerHTML = "";
+    /* resultContainer.innerHTML = ""; */
 
     /* List with the letters in word */
     var wordLetters = word.split("");
@@ -207,17 +211,50 @@ function createResults(message) {
     messageParagraph.textContent = message;
     resultContainer.appendChild(messageParagraph);
 
+
+    /* Div FORMS */
+    let divForms = document.getElementById("divForms")
+
+    let playAgainForm = document.getElementById("playAgainForm");
+    let inputMaxScoreValue = document.getElementById("inputMaxScore").value;
+
+    /* Check if score is > than max_score */
+    if (score > inputMaxScoreValue){
+        let inputMaxScore = document.getElementById("inputMaxScore");
+        inputMaxScore.innerHTML = "";
+        inputMaxScore.value = score;
+    }
+
     /* Add button new-game */
     let button = document.createElement("button");
-    button.textContent = "Juega de Nuevo";
-    button.addEventListener("click", function (event) {
+    button.textContent = "De nuevo 🔄 ";
+    button.setAttribute("type", "submit")
+    /* button.addEventListener("click", function (event) {
         event.preventDefault();
-        /* Almacenar puntaje actual en el almacenamiento local */
         localStorage.setItem("score", score);
-        /* Recargar la página */
         location.reload();
-    });
-    resultContainer.appendChild(button);
+    }); */
+
+    playAgainForm.appendChild(button);
+    divForms.appendChild(playAgainForm);
+
+    /* Add end game form and button */
+    let endGameForm = document.getElementById("endGameForm")
+
+    let button2 = document.createElement("button");
+    button2.textContent = " Regresar 🔙 "; 
+    button2.setAttribute("type", "submit");
+
+    if (score > inputMaxScoreValue){
+        let inputMaxScore = document.getElementById("inputMaxScore");
+        inputMaxScore.innerHTML = "";
+        inputMaxScore.value = score;
+    }
+
+    endGameForm.appendChild(button2);
+    divForms.appendChild(endGameForm)
+
+    resultContainer.appendChild(divForms)
 
     /* Add score message */
     var scoreParagraph = document.createElement("h1");

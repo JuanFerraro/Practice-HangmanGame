@@ -7,6 +7,7 @@ from fastapi.templating import Jinja2Templates
 
 # Schemas
 from schemas.user import User, UserLogin, UserRegister
+from bson.objectid import ObjectId #bson Mongo
 
 # Utilities
 from utils.utils import hash_password, verify_password, create_access_token
@@ -28,7 +29,7 @@ async def startup():
 ## GET: Login Page
 @users_router.get('/login/', tags = ['users'])
 def user_sign_up(request: Request):
-    """USER LOGIN
+    """USER LOGIN PAGE
 
     Args:
         request (Request): Necessary for templateResponse
@@ -40,12 +41,21 @@ def user_sign_up(request: Request):
 
 ## POST: User Login
 @users_router.post('/login/', tags=['users'])
-def sign_up(request: Request, user: UserLogin = Depends(UserLogin.user_login_as_form)):
+def user_login(request: Request, user: UserLogin = Depends(UserLogin.user_login_as_form)):
+    """USER login
+    
+    Args:
+        request (Request): Necessary for templateResponse
+        user (User_Login): This is the necessary information for the user login, it contains:
+                            - Email 
+                            - Password 
+                            It depends of user_login_as_form a @classMethod
+
+    Returns:
+        _templateResponse_: _Static Page_
+    """
     users_collection = users_router.mongodb_client["users"]
     existing_user = users_collection.find_one({"email": user.email})
-    print(user)
-    print(type(existing_user))
-    print("existing_user -> ",existing_user)
 
     if existing_user:
         user_in = User
@@ -101,4 +111,15 @@ def sign_up(request: Request, user: UserRegister = Depends(UserRegister.user_reg
     users_collection.insert_one(user.dict())
     return templates.TemplateResponse("index.html", {"request": request, "message":"Registro Exitoso"})
 
-    
+## POST: Update MaxScore User
+@users_router.post('/game/user/', tags=['users'])
+def check_user_max_score(request: Request, user: User = Depends(User.user_as_form)):
+    users_collection = users_router.mongodb_client["users"]
+    existing_user = users_collection.find_one({"email": user.email})
+    if user.max_score > existing_user.get('max_score'):
+        users_collection.update_one(
+            {"email": user.email},
+            {"$set": {"max_score": user.max_score}}
+        )
+        existing_user["max_score"] = user.max_score
+    return templates.TemplateResponse("index.html", {"request": request, "user": user})

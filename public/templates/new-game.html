@@ -22,7 +22,6 @@
             <h2>Max Score: {{ user.max_score }}</h2>
             <input type="hidden" name="maxScore" id="maxScore" value="{{user.max_score}}">
           {% endif %}
-
         </div>
 
         <div class="wordContainer" id="wordContainer">
@@ -43,6 +42,18 @@
 
         <div class="resultContainer" id="resultContainer">
           <!-- Contiene los resultados -->
+          <div class="divForms" id="divForms" >
+            <form class='playAgainForm' id="playAgainForm" action="/new-game/" method="POST">
+                <input type="hidden" name="user_name" value="{{ user.user_name }}">
+                <input type="hidden" name="max_score" value="{{ user.max_score }}" id="inputMaxScore">
+                <input type="hidden" name="email" value="{{ user.email }}">
+            </form>
+            <form action="/game/user/" class="endGameForm" id="endGameForm" method="POST">
+                <input type="hidden" name="user_name" value="{{ user.user_name }}">
+                <input type="hidden" name="max_score" value="{{ user.max_score }}" id="inputMaxScore">
+                <input type="hidden" name="email" value="{{ user.email }}">
+            </form>
+          </div>
         </div>
 
       </div>
