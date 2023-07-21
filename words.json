@@ -170,5 +170,125 @@
   {
     "word": "Cameo",
     "clue": "Breve aparición de un actor famoso en una película"
+  },
+  {
+    "word": "Sofa",
+    "clue": "Mueble comodo para sentarse, tipicamente en la sala de estar."
+  },
+  {
+    "word": "Nevera",
+    "clue": "Electrodomestico que mantiene los alimentos y bebidas frescos y frios."
+  },
+  {
+    "word": "Ventana",
+    "clue": "Abertura en una pared que permite la entrada de luz y aire al interior del hogar."
+  },
+  {
+    "word": "Cocina",
+    "clue": "Espacio donde se preparan y cocinan los alimentos."
+  },
+  {
+    "word": "Televisor",
+    "clue": "Dispositivo electronico para ver programas de television y peliculas."
+  },
+  {
+    "word": "Cama",
+    "clue": "Mueble utilizado para dormir y descansar."
+  },
+  {
+    "word": "Espejo",
+    "clue": "Superficie reflectante que muestra la imagen de lo que se coloca frente a ella."
+  },
+  {
+    "word": "Mesa",
+    "clue": "Superficie plana y elevada utilizada para colocar objetos o comer."
+  },
+  {
+    "word": "Lampara",
+    "clue": "Dispositivo de iluminacion que usa una fuente de luz, como una bombilla."
+  },
+  {
+    "word": "Armario",
+    "clue": "Mueble con puertas utilizado para guardar ropa y objetos personales."
+  },
+  {
+    "word": "Medicina",
+    "clue": "Ciencia y práctica que se ocupa del diagnóstico, tratamiento y prevención de enfermedades."
+  },
+  {
+    "word": "Doctor",
+    "clue": "Profesional de la medicina que se encarga de diagnosticar y tratar enfermedades en los pacientes."
+  },
+  {
+    "word": "Enfermera",
+    "clue": "Profesional de la salud que brinda cuidados y atención a los pacientes en hospitales y centros de salud."
+  },
+  {
+    "word": "Hospital",
+    "clue": "Institución médica donde se brinda atención médica a pacientes que requieren tratamiento y cuidados especiales."
+  },
+  {
+    "word": "Cirugia",
+    "clue": "Procedimiento médico que involucra operaciones y cortes en el cuerpo para tratar enfermedades o lesiones."
+  },
+  {
+    "word": "Farmacia",
+    "clue": "Establecimiento donde se dispensan medicamentos bajo prescripción médica o de venta libre."
+  },
+  {
+    "word": "Vacuna",
+    "clue": "Preparación que estimula el sistema inmunológico para prevenir enfermedades específicas."
+  },
+  {
+    "word": "Analgesico",
+    "clue": "Medicamento que alivia o elimina el dolor sin causar pérdida de conciencia."
+  },
+  {
+    "word": "Diagnostico",
+    "clue": "Determinación de una enfermedad o condición médica a través de evaluaciones y pruebas clínicas."
+  },
+  {
+    "word": "Receta",
+    "clue": "Prescripción médica escrita que indica los medicamentos y dosis que debe tomar un paciente."
+  },
+  {
+    "word": "Computadora",
+    "clue": "Dispositivo electrónico que procesa datos y realiza diversas tareas."
+  },
+  {
+    "word": "Internet",
+    "clue": "Red global de computadoras que permite la comunicación y el acceso a información en línea."
+  },
+  {
+    "word": "Smartphone",
+    "clue": "Teléfono móvil inteligente con capacidades avanzadas, como acceso a Internet y aplicaciones."
+  },
+  {
+    "word": "Tablet",
+    "clue": "Dispositivo portátil con pantalla táctil que se utiliza para navegar en Internet, leer y realizar tareas."
+  },
+  {
+    "word": "Software",
+    "clue": "Conjunto de programas y aplicaciones que permiten a la computadora realizar tareas específicas."
+  },
+  {
+    "word": "Hardware",
+    "clue": "Componentes físicos de una computadora o dispositivo electrónico."
+  },
+  {
+    "word": "Redes",
+    "clue": "Conjunto de dispositivos conectados entre sí para compartir información y recursos."
+  },
+  {
+    "word": "Inteligencia artificial",
+    "clue": "Simulación de procesos de inteligencia humana por parte de máquinas, especialmente computadoras."
+  },
+  {
+    "word": "Realidad virtual",
+    "clue": "Entorno generado por computadora que simula una experiencia inmersiva para el usuario."
+  },
+  {
+    "word": "Ciberseguridad",
+    "clue": "Prácticas y medidas para proteger sistemas y redes informáticas de ataques y accesos no autorizados."
   }
 ]

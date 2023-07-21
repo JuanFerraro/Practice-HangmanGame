@@ -4,31 +4,40 @@ document.getElementById("btnComienza").addEventListener("click", function (event
     myGame();
 });
 
-/* Main Container */
+/* Main Containers */
 let btnComienza = document.getElementById("btnComienza");
 let wordContainer = document.getElementById("wordContainer");
 let keyboardContainer = document.getElementById("keyboardContainer");
 let failsContainer = document.getElementById("failsContainer");
 let resultContainer = document.getElementById("resultContainer");
 
+/* Main values */
 let word = document.getElementById("word").value;
 let clue = document.getElementById("clue").value;
 let maxAttempts = 5;
-/* Global Score */
+
+/* Global Score and Max Score */
 let score = 0;
 let maxScoreContainer = document.getElementById("maxScoreContainer")
 let max_score = document.getElementById("maxScore").value;
+
+/* Flag */
 let flag = 0;
 
+/* Main Function */
 function myGame() {
+    /* This function run the game */
+    
+    /* Checking for flag value and then validate it */
     const savedFlag = localStorage.getItem("flag");
     flag = savedFlag ? parseInt(savedFlag) : 0;
     if (flag == 1){
         const savedScore = localStorage.getItem("score");
         score = savedScore ? parseInt(savedScore) : 0;
     };
-    console.log("flag ->",flag)
-    console.log("savedFlag ->", savedFlag)
+    /* console.log("flag ->",flag)
+    console.log("savedFlag ->", savedFlag) */
+
     /* Creating word input */
     let wordLetters = createInputs()
     /* Creating keyboard options */
@@ -38,6 +47,11 @@ function myGame() {
 }
 
 function createInputs() {
+    /*  This function create a special input for
+        each letter in the hidden word
+    */
+
+    /* All the word letter to UPPERCASE */
     word = word.toUpperCase()
 
     /* List with the letters in word */
@@ -52,6 +66,7 @@ function createInputs() {
     clueParagraph.textContent = clue;
     clueContainer.appendChild(clueParagraph)
 
+    /* Add hidden letters */
     wordLetters.forEach(function (letter) {
         var input = document.createElement("input");
         input.type = "password";
@@ -59,10 +74,15 @@ function createInputs() {
         wordContainer.appendChild(input);
     });
 
+    /* Return a List of word's letters */
     return wordLetters;
 }
 
 function createKeyboard(wordLetters) {
+    /*  This function create a keyboard with the spanish alphabet 
+        composed by inputs in a form
+    */
+
     /* Cleaning Container */
     keyboardContainer.innerHTML = "";
 
@@ -94,6 +114,10 @@ function createKeyboard(wordLetters) {
 }
 
 function createAttemptsCounter() {
+    /*  This function create the info about
+        attempts remaining and the score 
+    */
+
     /* Cleaning Container */
     failsContainer.innerHTML = "";
 
@@ -129,6 +153,11 @@ function createAttemptsCounter() {
 }
 
 function checkLetter(letter, wordLetters) {
+    /*  This function check if the clicked letter in keyboardContainer
+        is in the hidden word, aslo check if the player won the game,
+        and deactivate the clicked letter input. 
+    */
+
     /* Get wordLetters inputs */
     var wordInputs = wordContainer.getElementsByTagName("input");
 
@@ -181,6 +210,9 @@ function checkLetter(letter, wordLetters) {
 }
 
 function doYouWin() {
+    /*  This fuction checks if the player won the game 
+        it returns true or false in win.
+    */
     let wordInputs = wordContainer.getElementsByTagName("input");
     let win = true;
 
