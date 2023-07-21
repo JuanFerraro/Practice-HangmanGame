@@ -9,3 +9,7 @@ def connect_to_mongodb():
     except ConnectionFailure as e:
         print("Error de Conexion", e)
     return db
+
+""" Function to connect to mongodb """
+def get_mongodb_client():
+    return connect_to_mongodb()

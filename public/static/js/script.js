@@ -21,8 +21,11 @@ let score = 0;
 let maxScoreContainer = document.getElementById("maxScoreContainer")
 let max_score = document.getElementById("maxScore").value;
 
-/* Flag */
+/* Flag to control localStorage*/
 let flag = 0;
+
+/* Flag to control streak */
+let flagStreak = 0;
 
 /* Main Function */
 function myGame() {
@@ -170,7 +173,8 @@ function checkLetter(letter, wordLetters) {
                 wordInputs[i].type = "text";
             }
         }
-        score = score + 10;
+        flagStreak = flagStreak + 1;
+        score = score + 1 * (flagStreak);
         /* Update Score */
         let scoreInput = failsContainer.querySelector(".scoreInput");
         scoreInput.value = score;
@@ -184,6 +188,7 @@ function checkLetter(letter, wordLetters) {
 
     } else {
         /* Decrease attempts counter */
+        flagStreak = 0;
         maxAttempts--;
         /* Update attempts input value */
         let attemptsInput = failsContainer.querySelector(".attemptsInput");
@@ -191,9 +196,9 @@ function checkLetter(letter, wordLetters) {
 
         /* Check if no more attempts remaining */
         if (maxAttempts === 0) {
-            let scoreInput = failsContainer.querySelector(".scoreInput");
+            /* let scoreInput = failsContainer.querySelector(".scoreInput");
             score = 0;
-            scoreInput.value = score;
+            scoreInput.value = score; */
             flag = 0;
             createResults("🥺 Haz perdido 🥺");
             btnComienza.disabled = true;
@@ -286,9 +291,12 @@ function createResults(message) {
     button.setAttribute("type", "submit")
     button.addEventListener("click", function (event) {
         event.preventDefault();
+        if(flag == 0){
+            score = 0;
+        }
         localStorage.setItem("score", score); // Guardar el score en el almacenamiento local
         localStorage.setItem("flag", flag); // Guardar el score en el almacenamiento local
-        location.reload(); // Recargar la página para comenzar una nueva partida
+        playAgainForm.submit(); // Recargar la página para comenzar una nueva partida
     });
 
     playAgainForm.appendChild(button);
@@ -323,14 +331,12 @@ function createResults(message) {
     endGameForm.addEventListener("submit", function (event) {
         // Detener el envío del formulario
         event.preventDefault();
-        // Reiniciar el score a 0
-        /* let scoreInput = failsContainer.querySelector(".scoreInput");
-        console.log(scoreInput) */
+        /* Restart score to 0 */
         score = 0;
         flag = 0;
-        localStorage.setItem("score", score); // Guardar el score en el almacenamiento local
+        /*  */
+        localStorage.setItem("score", score);
         localStorage.setItem("flag", flag);
-        // Continuar con el envío del formulario
         endGameForm.submit();
     });
 

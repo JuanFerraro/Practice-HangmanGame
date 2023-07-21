@@ -2,7 +2,7 @@
 
 # FastAPI
 from fastapi import APIRouter, status, Request, Depends, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
 # Schemas
@@ -111,7 +111,7 @@ def sign_up(request: Request, user: UserRegister = Depends(UserRegister.user_reg
     users_collection.insert_one(user.dict())
     return templates.TemplateResponse("index.html", {"request": request, "message":"Registro Exitoso"})
 
-## POST: Update MaxScore User
+## POST: Update MaxScore User -> Index.html
 @users_router.post('/game/user/', tags=['users'])
 def check_user_max_score(request: Request, user: User = Depends(User.user_as_form)):
     users_collection = users_router.mongodb_client["users"]
