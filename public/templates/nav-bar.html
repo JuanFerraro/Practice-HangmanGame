@@ -1,0 +1,24 @@
+<nav class="navBar">
+    <div class="logo">
+        <img src="/static/img/hangman.png" alt="">
+    </div>
+    {% if user %}
+        <div class="welcome">
+            <h1>Bienvenido ✨ {{user.user_name}} ✨</h1>
+        </div>
+        <div class="welcome">
+            <div class="welcomeA">
+                <a href="/">Salir</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="welcome">
+            <div class="welcomeA">
+                <a href="/sign-up">Registrate</a>
+            </div>
+            <div class="welcomeA">
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+    {% endif %}
+</nav>

@@ -20,7 +20,7 @@ templates = Jinja2Templates(directory="./public/templates")
 
 
 ## GET
-@games_router.get(path='/game/', status_code=status.HTTP_200_OK, tags=['game'])
+@games_router.get(path='/', status_code=status.HTTP_200_OK, tags=['game'])
 def game(request: Request):
     """GAME
     Args:

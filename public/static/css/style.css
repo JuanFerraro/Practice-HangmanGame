@@ -9,14 +9,15 @@ body{
 
 .myContainer{
     margin: 0 auto;
+    padding-top: 42px;
     width: 100%;
     max-width: 1140px;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
-    row-gap: 32px;
+    row-gap: 42px;
 }
 
 .box-title{
@@ -25,8 +26,8 @@ body{
     max-width: 900px;
     height: auto;
     display: flex;
-    flex-direction: column;
-    row-gap: 15px;
+    flex-direction: row;
+    column-gap: 15px;
     justify-content: center;
     align-items: center;
     border-width: 10px;
@@ -40,9 +41,9 @@ body{
  	  inset -2px -5px 10px 0 #ffb3d5;
 }
 
-.box-title p, h2{
+.box-title img, h2{
     margin: 0;
-    margin-top: 12px;
+    margin: 8px 8px 8px 8px;
 }
 
 .box-item{
@@ -414,7 +415,7 @@ body{
     background-color: #191925;
     color: aliceblue;
     font-weight: bolder;
-    font-size: 22px;
+    font-size: 16px;
 }
 
 .formPlaceLogin .btnLogin{
@@ -432,4 +433,57 @@ body{
 .btnLogin:hover{
     background-color:rgb(0, 0, 0);
     color: #df00c5;
+}
+
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* NavBar Styles */
+header{
+    display: flex;
+    justify-content: center;
+}
+
+.navBar{
+    width: 90%;
+    display:flex;
+    margin-top: 16px;
+    flex-direction: row;
+    background-color: #080707;
+    align-items: center;
+    column-gap: 16px;
+    border-radius: 16px;
+}
+
+.logo{
+    flex-grow: 2;
+}
+
+.logo img{
+    margin-left: 16px;
+    padding-top: 4px;
+}
+
+.welcome{
+    margin-right: 16px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 16px;
+}
+
+.welcomeA{
+    width: 86px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #d600c0;
+    border-radius: 16px;
+}
+
+.welcomeA a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #131313;
 }

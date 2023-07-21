@@ -29,7 +29,7 @@ app.include_router(users_router)
 app.mount("/static", StaticFiles(directory="./public/static"), name="static")
 templates = Jinja2Templates(directory="./public/templates")
 
-## Home
+""" ## Home
 @app.get(path='/', status_code=status.HTTP_200_OK)
 def home_page():
-    return JSONResponse(content={'Hello,':'world!'})
+    return JSONResponse(content={'Hello,':'world!'}) """

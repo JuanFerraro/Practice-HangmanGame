@@ -11,6 +11,10 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
     </head>
+
+<header>
+    {% include 'nav-bar.html' %}
+</header>
 <body>
     <section class="myContainer">
         {% if message %}
@@ -18,10 +22,9 @@
         {% endif %}
 
         <div class="box-title">
-            <h2>(☞ﾟヮﾟ)☞ Hangman Game ☜(ﾟヮﾟ☜)</h2>
-            {% if user %}
-                <p>Bienvenido {{ user.user_name }}</p>
-            {% endif %}
+            <img src="/static/img/cuerda.png" alt="">
+            <h2> Hangman Game </h2>
+            <img src="/static/img/cuerda.png" alt="">
         </div>
         <div class="box-item">
             {% if user %}
