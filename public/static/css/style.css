@@ -10,9 +10,9 @@ body{
 .myContainer{
     margin: 0 auto;
     padding-top: 42px;
+    padding-bottom: 32px;
     width: 100%;
     max-width: 1140px;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -72,6 +72,7 @@ body{
 .box-item .new-game input{
     width: 180px;
     font-size: 24px;
+    font-weight: bolder;
     color: aliceblue;
     padding: 14px;
     border-radius: 16px;
@@ -80,6 +81,14 @@ body{
     box-shadow: 2px 3px 0px 3px rgba(0, 0, 0, 0.83),
  	  inset -70px -71px 80px 20px #080707,
  	  inset -15px -15px 10px 0 #ffb3d5;
+}
+
+.box-item .new-game input:hover{
+    color: #080707;
+    box-shadow: 0 0 1px 0 rgba(207, 1, 208, 0.8),
+ 	  inset -100px 10px 100px 20px #D600C0,
+ 	  0 0 7px 1px rgba(245, 20, 245, 0.54),
+ 	  inset 0 0 2px 0px #0F0A0A;
 }
 
 .socials{
@@ -423,6 +432,7 @@ body{
     width: 200px;
     height: 48px;
     font-size: 24px;
+    font-weight: bold;
     background-color: #131313;
     color: aliceblue;
     border-radius: 16px;
@@ -431,15 +441,18 @@ body{
 }
 
 .btnLogin:hover{
-    background-color:rgb(0, 0, 0);
-    color: #df00c5;
+    color: #080707;
+    box-shadow: 0 0 1px 0 rgba(207, 1, 208, 0.8),
+ 	  inset -100px 10px 100px 20px #D600C0,
+ 	  0 0 7px 1px rgba(245, 20, 245, 0.54),
+ 	  inset 0 0 2px 0px #0F0A0A;
 }
 
 /* ************************************************************************** */
 /* ************************************************************************** */
 /* ************************************************************************** */
 /* NavBar Styles */
-header{
+header, footer{
     display: flex;
     justify-content: center;
 }
@@ -487,3 +500,52 @@ header{
     font-weight: bold;
     color: #131313;
 }
+
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* Footer Styles */
+
+footer{
+    margin-left: 82px;
+    margin-bottom: 12px;
+    margin-top: 42px;
+    display: flex;
+    justify-content: flex-start;
+}
+.information{
+    display: flex;
+    flex-direction: row;
+    column-gap: 16px;
+    /* background-color: #13131b; */
+}
+
+.info-1{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.divider{
+    width: 350px;
+    height: 2px;
+    background-color: #d600c0;
+    border-radius: 50%;
+}
+
+.info-1 h2{
+    margin: 0;
+    padding: 0;
+}
+
+.info-1 p{
+    margin: 0;
+    padding-top: 12px;
+} 
+
+.socialsFooter{
+    display: flex;
+    flex-direction: row;
+    column-gap: 16px; 
+}
+

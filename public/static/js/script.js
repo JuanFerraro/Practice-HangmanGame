@@ -91,6 +91,7 @@ function createKeyboard(wordLetters) {
 
     /* Create the keyboard form */
     let keyboardForm = document.createElement("form");
+    keyboardForm.setAttribute("class","keyboardForm")
 
     /* Creating button for every letter */
     for (let i = 0; i < alphabet.length; i++) {

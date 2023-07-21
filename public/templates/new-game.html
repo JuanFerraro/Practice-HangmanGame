@@ -4,26 +4,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman</title>
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,400&f[]=general-sans@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,400&f[]=general-sans@400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Add icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
-  <header>
-    {% include 'nav-bar.html' %}
-  </header>
+  <header>{% include 'nav-bar.html' %}</header>
   <body>
     <div class="myContainer">
       <div class="game-box">
         <form class="btnComienza">
-          <input id="word" type="hidden" value="{{word.word}}">
-          <input id="clue" type="hidden" value="{{word.clue}}">
+          <input id="word" type="hidden" value="{{word.word}}" />
+          <input id="clue" type="hidden" value="{{word.clue}}" />
           <button type="submit" id="btnComienza">Comienza!</button>
         </form>
 
         <div class="maxScoreContainer" id="maxScoreContainer">
           <!-- Contiene el espacio para el maximo score -->
           {% if user %}
-            <h2>Max Score: {{ user.max_score }}</h2>
-            <input type="hidden" name="maxScore" id="maxScore" value="{{user.max_score}}">
+          <h2>Max Score: {{ user.max_score }}</h2>
+          <input
+            type="hidden"
+            name="maxScore"
+            id="maxScore"
+            value="{{user.max_score}}"
+          />
           {% endif %}
         </div>
 
@@ -45,23 +56,51 @@
 
         <div class="resultContainer" id="resultContainer">
           <!-- Contiene los resultados -->
-          <div class="divForms" id="divForms" >
-            <form class='playAgainForm' id="playAgainForm" action="/new-game/" method="POST">
-                <input type="hidden" name="user_name" value="{{ user.user_name }}">
-                <input type="hidden" name="max_score" value="{{ user.max_score }}" id="inputMaxScore">
-                <input type="hidden" name="email" value="{{ user.email }}">
+          <div class="divForms" id="divForms">
+            <form
+              class="playAgainForm"
+              id="playAgainForm"
+              action="/new-game/"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="user_name"
+                value="{{ user.user_name }}"
+              />
+              <input
+                type="hidden"
+                name="max_score"
+                value="{{ user.max_score }}"
+                id="inputMaxScore"
+              />
+              <input type="hidden" name="email" value="{{ user.email }}" />
             </form>
-            <form action="/game/user/" class="endGameForm" id="endGameForm" method="POST">
-                <input type="hidden" name="user_name" value="{{ user.user_name }}">
-                <input type="hidden" name="max_score" value="{{ user.max_score }}" id="inputMaxScore">
-                <input type="hidden" name="email" value="{{ user.email }}">
+            <form
+              action="/game/user/"
+              class="endGameForm"
+              id="endGameForm"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="user_name"
+                value="{{ user.user_name }}"
+              />
+              <input
+                type="hidden"
+                name="max_score"
+                value="{{ user.max_score }}"
+                id="inputMaxScore"
+              />
+              <input type="hidden" name="email" value="{{ user.email }}" />
             </form>
           </div>
         </div>
-
       </div>
     </div>
     <!-- Script -->
     <script src="/static/js/script.js"></script>
   </body>
+  <footer>{% include 'footer.html' %}</footer>
 </html>

@@ -1,52 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman Game</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css" />
     <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,400&f[]=general-sans@400&display=swap" rel="stylesheet">
-</head>
-<header>
-    {% include 'nav-bar.html' %}
-</header>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,400&f[]=general-sans@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <header>{% include 'nav-bar.html' %}</header>
+  <body>
     <section class="myContainer">
-        <div class="box-title">
-            <h2>📲 Sign Up 📲</h2>
-        </div>
-        <div class="box-item"> 
-            <form class="signupForm" action="/sign-up" method="POST">
-                <div class="formPlace">
-                    <label for="user_name" class="form-label">Nombre de Usuario</label>
-                    <input type="text" name="user_name" id="user_name"
-                            placeholder="Nombre de Usuario" required
-                            minlength="3" maxlength="30">
-                </div>
-                <div class="formPlace">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="Email" name="email" id="email"
-                            placeholder="Email" required>
-                </div>
-                <div class="formPlace">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" name="password" id="password"
-                            placeholder="Contraseña" required
-                            minlength="8" maxlength="24">
-                </div>
-                <div class="formPlace">
-                    <label for="confirmed_password" class="form-label">Contraseña</label>
-                    <input type="password" name="confirmed_password" id="confirmed_password"
-                            placeholder="Confirmar Contraseña" required
-                            minlength="8" maxlength="24">
-                </div>
-                <div class="formPlace">
-                    <button type="submit" class="btnSignup">Registrate</button>
-                </div>
-            </form>
-        </div>
+      <div class="box-title">
+        <h2>📲 Sign Up 📲</h2>
+      </div>
+      <div class="box-item">
+        <form class="signupForm" action="/sign-up" method="POST">
+          <div class="formPlace">
+            <label for="user_name" class="form-label">Nombre de Usuario</label>
+            <input
+              type="text"
+              name="user_name"
+              id="user_name"
+              placeholder="Nombre de Usuario"
+              required
+              minlength="3"
+              maxlength="30"
+            />
+          </div>
+          <div class="formPlace">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="Email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="formPlace">
+            <label for="password" class="form-label">Contraseña</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Contraseña"
+              required
+              minlength="8"
+              maxlength="24"
+            />
+          </div>
+          <div class="formPlace">
+            <label for="confirmed_password" class="form-label"
+              >Contraseña</label
+            >
+            <input
+              type="password"
+              name="confirmed_password"
+              id="confirmed_password"
+              placeholder="Confirmar Contraseña"
+              required
+              minlength="8"
+              maxlength="24"
+            />
+          </div>
+          <div class="formPlace">
+            <button type="submit" class="btnSignup">Registrate</button>
+          </div>
+        </form>
+      </div>
     </section>
-</body>
+  </body>
+  <footer>{% include 'footer.html' %}</footer>
 </html>
