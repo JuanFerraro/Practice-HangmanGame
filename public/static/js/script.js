@@ -1,8 +1,10 @@
-/* document.getElementById("btnComienza").addEventListener("click", myGame); */
+/* Game Start by button 'Comienza' */
 document.getElementById("btnComienza").addEventListener("click", function (event) {
     event.preventDefault();
     myGame();
 });
+
+/* Main Container */
 let btnComienza = document.getElementById("btnComienza");
 let wordContainer = document.getElementById("wordContainer");
 let keyboardContainer = document.getElementById("keyboardContainer");
@@ -16,9 +18,17 @@ let maxAttempts = 5;
 let score = 0;
 let maxScoreContainer = document.getElementById("maxScoreContainer")
 let max_score = document.getElementById("maxScore").value;
-console.log(max_score)
+let flag = 0;
 
 function myGame() {
+    const savedFlag = localStorage.getItem("flag");
+    flag = savedFlag ? parseInt(savedFlag) : 0;
+    if (flag == 1){
+        const savedScore = localStorage.getItem("score");
+        score = savedScore ? parseInt(savedScore) : 0;
+    };
+    console.log("flag ->",flag)
+    console.log("savedFlag ->", savedFlag)
     /* Creating word input */
     let wordLetters = createInputs()
     /* Creating keyboard options */
@@ -136,9 +146,8 @@ function checkLetter(letter, wordLetters) {
         scoreInput.value = score;
         isWinner = doYouWin();
         if (isWinner == true) {
-            if (score > max_score){
-
-            }
+            flag = 1;
+            console.log("flag ->",flag)
             createResults("👏 Haz ganado! 👏");
             btnComienza.disabled = true;
         }
@@ -152,6 +161,10 @@ function checkLetter(letter, wordLetters) {
 
         /* Check if no more attempts remaining */
         if (maxAttempts === 0) {
+            let scoreInput = failsContainer.querySelector(".scoreInput");
+            score = 0;
+            scoreInput.value = score;
+            flag = 0;
             createResults("🥺 Haz perdido 🥺");
             btnComienza.disabled = true;
         }
@@ -192,6 +205,16 @@ function createResults(message) {
 
     /* Cleaning failsContainer */
     failsContainer.innerHTML = "";
+    /* Create the input for score */
+    /* MACHETAZO - MACHETAZO - MACHETAZO - MACHETAZO -  */
+    let scoreInput = document.createElement("input");
+    scoreInput.type = "hidden";
+    scoreInput.value = score;
+    scoreInput.setAttribute("class", "scoreInput")
+    scoreInput.disabled = true;
+    failsContainer.appendChild(scoreInput);
+    /*  MACHETAZO - MACHETAZO - MACHETAZO - MACHETAZO - */
+
 
     /* Cleaning resultContainer */
     /* resultContainer.innerHTML = ""; */
@@ -211,7 +234,6 @@ function createResults(message) {
     messageParagraph.textContent = message;
     resultContainer.appendChild(messageParagraph);
 
-
     /* Div FORMS */
     let divForms = document.getElementById("divForms")
 
@@ -219,7 +241,7 @@ function createResults(message) {
     let inputMaxScoreValue = document.getElementById("inputMaxScore").value;
 
     /* Check if score is > than max_score */
-    if (score > inputMaxScoreValue){
+    if (score > inputMaxScoreValue) {
         let inputMaxScore = document.getElementById("inputMaxScore");
         inputMaxScore.innerHTML = "";
         inputMaxScore.value = score;
@@ -229,11 +251,12 @@ function createResults(message) {
     let button = document.createElement("button");
     button.textContent = "De nuevo 🔄 ";
     button.setAttribute("type", "submit")
-    /* button.addEventListener("click", function (event) {
+    button.addEventListener("click", function (event) {
         event.preventDefault();
-        localStorage.setItem("score", score);
-        location.reload();
-    }); */
+        localStorage.setItem("score", score); // Guardar el score en el almacenamiento local
+        localStorage.setItem("flag", flag); // Guardar el score en el almacenamiento local
+        location.reload(); // Recargar la página para comenzar una nueva partida
+    });
 
     playAgainForm.appendChild(button);
     divForms.appendChild(playAgainForm);
@@ -242,10 +265,10 @@ function createResults(message) {
     let endGameForm = document.getElementById("endGameForm")
 
     let button2 = document.createElement("button");
-    button2.textContent = " Regresar 🔙 "; 
+    button2.textContent = " Regresar 🔙 ";
     button2.setAttribute("type", "submit");
 
-    if (score > inputMaxScoreValue){
+    if (score > inputMaxScoreValue) {
         let inputMaxScore = document.getElementById("inputMaxScore");
         inputMaxScore.innerHTML = "";
         inputMaxScore.value = score;
@@ -261,5 +284,23 @@ function createResults(message) {
     scoreParagraph.textContent = "Score:" + score;
     console.log("Score -> ", score)
     resultContainer.appendChild(scoreParagraph)
+
+
+    // Agrega un evento 'submit' al formulario 'endGameForm'
+    endGameForm.addEventListener("submit", function (event) {
+        // Detener el envío del formulario
+        event.preventDefault();
+        // Reiniciar el score a 0
+        /* let scoreInput = failsContainer.querySelector(".scoreInput");
+        console.log(scoreInput) */
+        score = 0;
+        flag = 0;
+        localStorage.setItem("score", score); // Guardar el score en el almacenamiento local
+        localStorage.setItem("flag", flag);
+        // Continuar con el envío del formulario
+        endGameForm.submit();
+    });
+
+
 }
 
