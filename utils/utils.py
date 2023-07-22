@@ -13,10 +13,6 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 # Schema
 from schemas.user import User
 
-# JWT
-import jwt
-from jwt import PyJWTError
-
 ## CryptContext Object
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -44,18 +40,13 @@ def read_words():
         words = json.load(file) 
     return words
 
-## JWT Auth
 
-## HTTPBearer instance
-bearer_scheme = HTTPBearer()
+## Services:
 
-SECRET_KEY = "my_secret_key_super_secret"  
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
-
-def create_access_token(data: dict):
-    to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    return encoded_jwt
+def update_max_score(users_collection, email, new_max_score):
+    existing_user = users_collection.find_one({"email": email})
+    if new_max_score > existing_user.get('max_score'):
+        users_collection.update_one(
+            {"email": email},
+            {"$set": {"max_score": new_max_score}}
+        )

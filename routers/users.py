@@ -1,16 +1,14 @@
 """Users views"""
 
 # FastAPI
-from fastapi import APIRouter, status, Request, Depends, HTTPException
-from fastapi.responses import JSONResponse, RedirectResponse
+from fastapi import APIRouter, status, Request, Depends
 from fastapi.templating import Jinja2Templates
 
 # Schemas
 from schemas.user import User, UserLogin, UserRegister
-from bson.objectid import ObjectId #bson Mongo
 
 # Utilities
-from utils.utils import hash_password, verify_password, create_access_token
+from utils.utils import hash_password, verify_password, update_max_score
 
 # Config
 from config.database import connect_to_mongodb
@@ -62,15 +60,9 @@ def user_login(request: Request, user: UserLogin = Depends(UserLogin.user_login_
         user_in.user_name = existing_user.get('user_name')
         user_in.max_score = existing_user.get('max_score')
         user_in.email = existing_user.get('email')
-        access_token = create_access_token(data={"sub": user_in.email})
-        print('TOKEN ->', access_token)
 
         if verify_password(user.password, existing_user.get('password')):
-            """ return templates.TemplateResponse("index.html", {"request": request, 
-                                                             "user": user_in
-                                                             }) """
             response = templates.TemplateResponse("index.html", {"request": request, "user": user_in})
-            response.set_cookie(key="access_token", value=access_token, httponly=True)
             return response
         else:
             return templates.TemplateResponse("login.html", {"request": request, "message":"Las contraseñas no coinciden"})
@@ -115,11 +107,5 @@ def sign_up(request: Request, user: UserRegister = Depends(UserRegister.user_reg
 @users_router.post('/game/user/', tags=['users'])
 def check_user_max_score(request: Request, user: User = Depends(User.user_as_form)):
     users_collection = users_router.mongodb_client["users"]
-    existing_user = users_collection.find_one({"email": user.email})
-    if user.max_score > existing_user.get('max_score'):
-        users_collection.update_one(
-            {"email": user.email},
-            {"$set": {"max_score": user.max_score}}
-        )
-        existing_user["max_score"] = user.max_score
+    update_max_score(users_collection, user.email, user.max_score)
     return templates.TemplateResponse("index.html", {"request": request, "user": user})

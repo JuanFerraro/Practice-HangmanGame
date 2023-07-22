@@ -10,7 +10,7 @@ from fastapi.templating import Jinja2Templates
 from schemas.user import User
 
 # Utilities
-from utils.utils import read_words
+from utils.utils import read_words, update_max_score
 from config.database import connect_to_mongodb
 
 # Initialization Router
@@ -47,15 +47,7 @@ def new_game(request: Request, user: User = Depends(User.user_as_form)):
 @games_router.post('/play-again/', tags=['users'])
 def user_play_again(request: Request, user: User = Depends(User.user_as_form)):
     users_collection = games_router.mongodb_client["users"]
-    existing_user = users_collection.find_one({"email": user.email})
-    print('user.max_score', user.max_score)
-    print("existing_user.get('max_score')", existing_user.get('max_score'))
-    if user.max_score > existing_user.get('max_score'):
-        users_collection.update_one(
-            {"email": user.email},
-            {"$set": {"max_score": user.max_score}}
-        )
-        existing_user["max_score"] = user.max_score
+    update_max_score(users_collection, user.email, user.max_score)
     words = read_words()
     word = random.choice(words)
     return templates.TemplateResponse("new-game.html", {"request": request, 'word': word, "user": user})
