@@ -53,7 +53,8 @@ body{
     height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     align-items: center;
     row-gap: 16px;
     column-gap: 10px;
@@ -552,3 +553,32 @@ footer{
     column-gap: 16px; 
 }
 
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* Ranking Styles */
+
+.gif{
+    width: 160px;
+    object-fit: contain;
+    border-radius: 25px;
+}
+
+table {
+    width: auto;
+    object-fit: contain;
+}
+
+th{
+    text-align: center;
+    background-color:#D600C0;
+    color: #080707;
+    border-radius: 16px;
+}
+
+td{
+    color:#D600C0;
+    padding: 12px;
+    border-width: 4px;
+    border-bottom-color: #D600C0;
+}

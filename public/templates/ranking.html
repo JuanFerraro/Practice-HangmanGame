@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+    <!-- Add icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Add fonts library -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,400&f[]=general-sans@400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <header>{% include 'nav-bar.html' %}</header>
+
+  <body>
+    <section class="myContainer">
+      {% if message %} {% include 'message.html' %} {% endif %}
+
+      <div class="box-title">
+        <img class="gif" src="/static/img/hasbulla.gif" alt="" />
+        <h2>Ranking</h2>
+        <img class="gif" src="/static/img/hasbulla.gif" alt="" />
+      </div>
+      <div class="box-item">
+        <table>
+            <th colspan="2">Top Scores</th>
+            {% for user in top_users %}
+                <tr>
+                    <td>{{user.user_name}}</td>
+                    <td>{{user.max_score}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+      </div>
+    </section>
+    <!-- Script -->
+    <script src="/static/js/utils.js"></script>
+  </body>
+
+  <footer>{% include 'footer.html' %}</footer>
+</html>

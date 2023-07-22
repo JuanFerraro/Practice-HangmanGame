@@ -1,6 +1,6 @@
 # Python
 import json
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime, timedelta
 
 # Passlib
@@ -50,3 +50,8 @@ def update_max_score(users_collection, email, new_max_score):
             {"email": email},
             {"$set": {"max_score": new_max_score}}
         )
+
+
+def get_top_users(users_collection, limit=6):
+    top_users = users_collection.find().sort("max_score", -1).limit(limit)
+    return list(top_users)
