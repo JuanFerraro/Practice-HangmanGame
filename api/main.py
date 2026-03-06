@@ -23,16 +23,16 @@ app.version = '0.1'
 app.include_router(games_router)
 app.include_router(users_router)
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 static_dir = BASE_DIR / "public/static"
 templates_dir = BASE_DIR / "public/templates"
 
 # Static files only if folder exists
 if static_dir.exists():
-    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+    app.mount("/static", StaticFiles(directory=BASE_DIR / "public/static"), name="static")
 
-templates = Jinja2Templates(directory=templates_dir)
+templates = Jinja2Templates(directory=BASE_DIR / "public/templates")
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
