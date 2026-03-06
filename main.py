@@ -1,5 +1,6 @@
 # Python
 import os
+from pathlib import Path
 
 # Uvicorn
 import uvicorn
@@ -22,10 +23,14 @@ app.version = '0.1'
 app.include_router(games_router)
 app.include_router(users_router)
 
+# Base path
+BASE_DIR = Path(__file__).resolve().parent
+
 # Static Files
-app.mount("/static", StaticFiles(directory="./public/static"), name="static")
-templates = Jinja2Templates(directory="./public/templates")
+app.mount("/static", StaticFiles(directory=BASE_DIR / "public/static"), name="static")
+
+# Templates
+templates = Jinja2Templates(directory=BASE_DIR / "public/templates")
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0",
-                port=int(os.environ.get("PORT", 8000)))
+    uvicorn.run("main:app", host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
